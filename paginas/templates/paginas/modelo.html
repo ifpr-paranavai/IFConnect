@@ -1,0 +1,97 @@
+{% load static %}
+
+<!doctype html>
+<html lang="pt-br" class="h-100">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Francisco Gabriel Cavalcante Candido">
+
+
+    <title>
+        {% block title %}
+        IF-Connection
+        {% endblock %}
+    </title>
+
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/sticky-footer-navbar.css' %}" rel="stylesheet">
+
+    <style>
+        .bi {
+            vertical-align: 0;
+        }
+    </style>
+
+</head>
+
+<body class="d-flex flex-column h-100">
+    {% block menu %}
+
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">IF-Connection</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                        <a class="nav-link" href="#" role="button" aria-expanded="false">
+                            Inicio
+                        </a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Publicações
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Minhas Publicações</a></li>
+                                <li><a class="dropdown-item" href="#">Criar Publicação</a>
+                                <!--<li><a class="dropdown-item" href="#"></a>
+                                <li><a class="dropdown-item" href="#"></a>-->
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Cadastros
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Usuario</a></li>
+                                <!--<li><a class="dropdown-item" href="#"></a>
+                                <li><a class="dropdown-item" href="#"></a>
+                                <li><a class="dropdown-item" href="#"></a>-->
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    {% endblock %}
+
+    <footer class="footer mt-auto py-3 bg-body-tertiary">
+        <div class="container">
+            <span class="text-body-secondary">Desenvolvido por - Francisco Gabriel Cavalcante Candido</span>
+        </div>
+    </footer>
+
+    <script src="{%static 'js/jquery-3.6.4.min.js'%}"></script>
+    <script src="{%static 'js/popper.min.js'%}"></script>
+    <script src="{%static 'js/bootstrap.min.js'%}"></script>
+
+
+</body>
+
+</html>
