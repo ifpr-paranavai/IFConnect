@@ -1,5 +1,7 @@
-from django.urls import path, include
-from .views import IndexView, UsuarioCreate
+from django.urls import path
+from django.views import View
+from .views import IndexView
+from .views import UsuarioCreate
 
 
 
