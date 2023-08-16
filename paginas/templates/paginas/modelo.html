@@ -52,7 +52,7 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="#">Minhas Publicações</a></li>
-                                <li><a class="dropdown-item" href="#">Criar Publicação</a>
+                                <li><a class="dropdown-item" href="{% url 'cadastrar-midia' %}">Criar Publicação</a>
                                 <!--<li><a class="dropdown-item" href="#"></a>
                                 <li><a class="dropdown-item" href="#"></a>-->
                                 </li>
@@ -79,6 +79,10 @@
         </nav>
     </header>
 
+    <script src="{%static 'js/jquery-3.6.4.min.js'%}"></script>
+    <script src="{%static 'js/popper.min.js'%}"></script>
+    <script src="{%static 'js/bootstrap.min.js'%}"></script>
+
     {% endblock %}
 
     <footer class="footer mt-auto py-3 bg-body-tertiary">
@@ -87,9 +91,7 @@
         </div>
     </footer>
 
-    <script src="{%static 'js/jquery-3.6.4.min.js'%}"></script>
-    <script src="{%static 'js/popper.min.js'%}"></script>
-    <script src="{%static 'js/bootstrap.min.js'%}"></script>
+    
 
 
 </body>

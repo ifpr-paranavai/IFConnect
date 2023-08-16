@@ -15,8 +15,9 @@ class Midia(models.Model):
     nome = models.CharField(max_length=55)
     dataInicio = models.DateTimeField(editable=True)
     dataTermino = models.DateTimeField(editable=True)
-    path = models.CharField(max_length=255)
-    status = models.BooleanField
+    arquivo = models.ImageField(upload_to='imagens')
+    #path = models.CharField(max_length=255)
+    #status = models.BooleanField
 
 class Tipo(models.Model):
     tipo = models.CharField(max_length=55)

@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cadastros.apps.CadastrosConfig',
     'paginas.apps.PaginasConfig',
+    'usuarios.apps.UsuariosConfig',
 
     "crispy_forms",
     "crispy_bootstrap5",
@@ -129,6 +130,11 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'imagens')
+
+
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
