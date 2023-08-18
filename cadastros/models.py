@@ -13,9 +13,9 @@ class Usuario(models.Model):
 
 class Midia(models.Model):
     nome = models.CharField(max_length=55)
-    dataInicio = models.DateTimeField(editable=True)
-    dataTermino = models.DateTimeField(editable=True)
-    arquivo = models.ImageField(upload_to='imagens')
+    #dataInicio = models.DateTimeField(editable=True)
+    #dataTermino = models.DateTimeField(editable=True)
+    arquivo = models.ImageField(upload_to='uploads')
     #path = models.CharField(max_length=255)
     #status = models.BooleanField
 

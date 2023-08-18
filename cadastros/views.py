@@ -19,5 +19,5 @@ class MidiaCreate(CreateView):
     model = Midia
     fields = ["nome", "arquivo"]
     success_url = reverse_lazy("cadastrar-midia")
-    template_name = "cadastros/form.html"
+    template_name = "cadastros/formupload.html"
     extra_context = {"titulo": "Cadastro de Midia"}
