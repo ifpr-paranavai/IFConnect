@@ -13,11 +13,16 @@ class Usuario(models.Model):
 
 class Midia(models.Model):
     nome = models.CharField(max_length=55)
-    #dataInicio = models.DateTimeField(editable=True)
-    #dataTermino = models.DateTimeField(editable=True)
+    dataInicio = models.DateField()
+    dataTermino = models.DateField()
     arquivo = models.ImageField(upload_to='uploads')
     #path = models.CharField(max_length=255)
     #status = models.BooleanField
+
+    def delete(self, *args, **kwargs):
+        
+        self.arquivo.delete()
+        super().delete(*args, **kwargs)
 
 class Tipo(models.Model):
     tipo = models.CharField(max_length=55)

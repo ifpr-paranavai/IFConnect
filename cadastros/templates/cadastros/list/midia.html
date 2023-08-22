@@ -1,0 +1,53 @@
+{% extends 'paginas/modelo.html' %}
+
+{% load static %}
+
+{% block conteudo %}
+
+
+
+<h1 class="mt-5">{{ titulo|default:"Comunicado" }}</h1>
+<div class="container mt-5">
+    <div class="row">
+        {% for midia_obj in object_list %}
+        <div class="col-md-4">
+            <div class="card">
+                <img src="{{ midia_obj.arquivo.url }}" class="card-img-top" alt="Imagem">
+                <div class="card-body">
+                    <h5 class="card-title">{{ midia_obj.nome }}</h5>
+                </div>
+                <a href="{% url 'midia-delete' midia_obj.pk %}" class="btn btn-danger">Excluir</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="mt-3">
+        {% if is_paginated %}
+        <nav aria-label="Paginação">
+            <ul class="pagination justify-content-center">
+                {% if page_obj.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page=1">Primeira</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Anterior</a>
+                </li>
+                {% endif %}
+                <li class="page-item active" aria-current="page">
+                    <span class="page-link">{{ page_obj.number }}</span>
+                </li>
+                {% if page_obj.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.next_page_number }}">Próxima</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Última</a>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

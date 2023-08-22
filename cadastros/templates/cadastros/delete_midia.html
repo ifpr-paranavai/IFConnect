@@ -1,0 +1,15 @@
+{% extends "paginas/modelo.html" %}
+
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <h1>Excluir Imagem</h1>
+    <p>Você tem certeza de que deseja excluir a imagem "{{ object.nome }}"?</p>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Excluir</button>
+            <a href="{% url 'cadastrar-midia' %}" class="btn btn-secondary">Cancelar</a>
+        </form>
+{% endblock %}
