@@ -1,23 +1,24 @@
 import os
-from pyexpat.errors import messages
-from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView, CreateView, ListView, DeleteView
 from .models import Usuario, Midia
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-class IndexView(TemplateView):
+
+class IndexView(TemplateView, LoginRequiredMixin):
     template_name = "cadastros/index.html"
 
 
-class UsuarioCreate(CreateView):
+class UsuarioCreate(CreateView, LoginRequiredMixin):
     model = Usuario
     fields = ["nome", "sobrenome", "email", "senha"]
     template_name = "cadastros/form.html"
     success_url = reverse_lazy("cadastrar-usuario")
     extra_context = {"titulo": "Cadastro de Usuario"}
 
-class MidiaCreate(CreateView):
+
+class MidiaCreate(CreateView, LoginRequiredMixin):
     model = Midia
     fields = ["nome", "arquivo", "dataInicio", "dataTermino"]
     success_url = reverse_lazy("cadastrar-midia")
@@ -25,13 +26,13 @@ class MidiaCreate(CreateView):
     extra_context = {"titulo": "Cadastro de Midia"}
 
 
-class MidiaList(ListView):
+class MidiaList(ListView, LoginRequiredMixin):
     model = Midia
     template_name = "cadastros/list/midia.html"
     paginate_by = 10
 
 
-class MidiaDeleteView(DeleteView):
+class MidiaDeleteView(DeleteView, LoginRequiredMixin):
     model = Midia
     template_name = 'cadastros/delete_midia.html'
     success_url = reverse_lazy('listar-midia')
