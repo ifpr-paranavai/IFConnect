@@ -5,7 +5,7 @@
 {% block conteudo %}
 
 
-
+{% if request.user.is_authenticated %}
 <h1 class="mt-5">{{ titulo|default:"Comunicado" }}</h1>
 <div class="container mt-5">
     <div class="row">
@@ -49,5 +49,13 @@
         {% endif %}
     </div>
 </div>
+{% else %}
+<li class="nav-item">
+    <a class="nav-link" href="{% url 'login' %}">
+        <i class="fa fa-sign-in" aria-hidden="true"></i>
+        <button type="submit" class="btn btn-success">Entrar</button>
+    </a>
+</li>
+{% endif %}
 
 {% endblock %}

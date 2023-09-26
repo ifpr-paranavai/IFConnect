@@ -1,4 +1,5 @@
 import os
+from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView, CreateView, ListView, DeleteView
 from .models import Usuario, Midia
@@ -37,10 +38,11 @@ class MidiaDeleteView(DeleteView, LoginRequiredMixin):
     template_name = 'cadastros/delete_midia.html'
     success_url = reverse_lazy('listar-midia')
 
-
 def delete_midia(request, midia_id):
-    midia = get_object_or_404(Midia, pk=midia_id)
+    arquivo = get_object_or_404(Midia, pk=midia_id)
     if request.method == 'POST':
-        midia.delete()
-        return redirect('nome_da_view_list')
-    return render(request, 'cadastros/delete_midia.html', {'midia': midia})
+        arquivo.delete()
+        return redirect('listar-midia')
+    return render(request, 'cadastros/delete_midia.html', {'midia': arquivo})
+
+
